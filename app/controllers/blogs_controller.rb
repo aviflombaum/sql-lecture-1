@@ -7,13 +7,16 @@ class BlogsController
   def main
     puts "Welcome to Your Blog!"
     puts ""
-    puts "Main Menu: index, new"
+    puts "Main Menu: index, new, exit"
     input = gets.strip
     case input
     when "index"
       index
     when "new"
       new
+    when 'exit'
+      puts "Goodbye."
+      exit
     else
       puts "Invalid Input"
       main
@@ -21,6 +24,7 @@ class BlogsController
   end
 
   def index
+    puts ""
     puts "Listing All Posts:"
     Post.all.each.with_index(1) do |post,i|
       puts "#{i}. #{post.title}"
@@ -34,8 +38,10 @@ class BlogsController
       puts "#{post.title}"
       puts "-------------"
       puts "#{post.content}"
+      puts ""
     else
       puts "Could not find post ##{post_id}"
+      puts ""
     end
     main
   end 

@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+require_relative '../config/environment'
+
+def reload!
+  load_all 'app'
+end
+
+puts "Welcome to your Blog Console!\n"
+
+Pry.start
